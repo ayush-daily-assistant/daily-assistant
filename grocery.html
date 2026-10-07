@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Grocery - Daily Assistant</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <main class="main-content">
+        <a href="/" class="back-button">← Back to Dashboard</a>
+
+        <h1>🛒 Grocery List</h1>
+
+        <p>Manage your shopping items.</p>
+
+        <br>
+
+        <!-- Add Grocery Item -->
+
+        <form method="POST" class="grocery-form">
+
+            <input
+                type="text"
+                name="item"
+                placeholder="Grocery item"
+                required
+            >
+
+            <input
+                type="text"
+                name="quantity"
+                placeholder="Quantity (e.g. 2 kg)"
+            >
+
+            <button type="submit">
+                Add Item
+            </button>
+
+        </form>
+
+        <br>
+
+        <!-- Grocery List -->
+
+        <div class="grocery-list">
+
+            {% for grocery in groceries %}
+
+                <div class="grocery-item">
+
+                    <span class="grocery-name">
+                        🛒 {{ grocery[1] }}
+                    </span>
+
+                    <span class="grocery-quantity">
+                        {{ grocery[2] }}
+                    </span>
+
+                    {% if grocery[3] == 0 %}
+
+                        <a href="/grocery/bought/{{ grocery[0] }}">
+                            ✅ Mark Bought
+                        </a>
+
+                    {% else %}
+
+                        <span>
+                            ✅ Bought
+                        </span>
+
+                    {% endif %}
+
+                    <a href="/grocery/delete/{{ grocery[0] }}">
+                        🗑️ Delete
+                    </a>
+
+                </div>
+
+            {% endfor %}
+
+        </div>
+
+    </main>
+
+</body>
+
+</html>

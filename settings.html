@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Settings - Daily Assistant</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <main class="main-content">
+        <a href="/" class="back-button">← Back to Dashboard</a>
+
+        <h1>⚙️ Settings</h1>
+
+        <p>Manage your Personal Daily Assistant settings.</p>
+
+        <br>
+
+        <!-- APP INFORMATION -->
+
+        <section class="settings-section">
+
+            <h2>👤 App Information</h2>
+
+            <div class="setting-item">
+                <strong>Application Name</strong>
+                <span>Personal Daily Assistant</span>
+            </div>
+
+            <div class="setting-item">
+                <strong>Version</strong>
+                <span>1.0</span>
+            </div>
+
+        </section>
+
+
+        <!-- APPEARANCE -->
+
+        <section class="settings-section">
+
+            <h2>🎨 Appearance</h2>
+
+            <div class="setting-item">
+
+                <div>
+                    <strong>Theme</strong>
+                    <p>Choose how your Personal Daily Assistant looks.</p>
+                </div>
+
+                <select id="themeSelector">
+
+                    <option value="light">☀️ Light</option>
+
+                    <option value="dark">🌙 Dark</option>
+
+                </select>
+
+            </div>
+
+        </section>
+
+
+        <!-- ABOUT -->
+
+        <section class="settings-section">
+
+            <h2>ℹ️ About</h2>
+
+            <p>
+                Personal Daily Assistant is a simple productivity
+                application designed to help manage everyday tasks,
+                expenses, study sessions, groceries, notes, reminders,
+                goals and important dates.
+            </p>
+
+        </section>
+
+    </main>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+
+</html>

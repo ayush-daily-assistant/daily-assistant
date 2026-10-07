@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Goals - Daily Assistant</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <main class="main-content">
+        <a href="/" class="back-button">← Back to Dashboard</a>
+
+        <h1>🎯 My Goals</h1>
+
+        <p>Set and track your personal goals.</p>
+
+        <br>
+
+        <!-- Add Goal -->
+
+        <form method="POST" class="goal-form">
+
+            <input
+                type="text"
+                name="title"
+                placeholder="Goal title"
+                required
+            >
+
+            <textarea
+                name="description"
+                placeholder="Goal description"
+                rows="3"
+            ></textarea>
+
+            <input
+                type="date"
+                name="target_date"
+                required
+            >
+
+            <button type="submit">
+                Add Goal
+            </button>
+
+        </form>
+
+        <br>
+
+        <!-- Goals List -->
+
+        <div class="goal-list">
+
+            {% for goal in goals %}
+
+                <div class="goal-item">
+
+                    <div class="goal-content">
+
+                        <h2>
+                            🎯 {{ goal[1] }}
+                        </h2>
+
+                        <p>
+                            {{ goal[2] }}
+                        </p>
+
+                        <small>
+                            📅 Target: {{ goal[3] }}
+                        </small>
+
+                    </div>
+
+                    {% if goal[4] == 0 %}
+
+                        <a href="/goals/complete/{{ goal[0] }}">
+                            ✅ Complete
+                        </a>
+
+                    {% else %}
+
+                        <span>
+                            ✅ Completed
+                        </span>
+
+                    {% endif %}
+
+                    <a href="/goals/delete/{{ goal[0] }}">
+                        🗑️ Delete
+                    </a>
+
+                </div>
+
+            {% endfor %}
+
+        </div>
+
+    </main>
+
+</body>
+
+</html>

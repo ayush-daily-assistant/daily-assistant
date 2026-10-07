@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Reminders - Daily Assistant</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <main class="main-content">
+        <a href="/" class="back-button">← Back to Dashboard</a>
+
+        <h1>⏰ My Reminders</h1>
+
+        <p>Create and manage your reminders.</p>
+
+        <br>
+
+        <!-- Add Reminder -->
+
+        <form method="POST" class="reminder-form">
+
+            <input
+                type="text"
+                name="title"
+                placeholder="Reminder title"
+                required
+            >
+
+            <input
+                type="datetime-local"
+                name="reminder_time"
+                required
+            >
+
+            <button type="submit">
+                Add Reminder
+            </button>
+
+        </form>
+
+        <br>
+
+        <!-- Reminder List -->
+
+        <div class="reminder-list">
+
+            {% for reminder in reminders %}
+
+                <div class="reminder-item">
+
+                    <div>
+
+                        <h2>
+                            {{ reminder[1] }}
+                        </h2>
+
+                        <p>
+                            📅 {{ reminder[2] }}
+                        </p>
+
+                    </div>
+
+                    {% if reminder[3] == 0 %}
+
+                        <a href="/reminders/complete/{{ reminder[0] }}">
+                            ✅ Complete
+                        </a>
+
+                    {% else %}
+
+                        <span>
+                            ✅ Completed
+                        </span>
+
+                    {% endif %}
+
+                    <a href="/reminders/delete/{{ reminder[0] }}">
+                        🗑️ Delete
+                    </a>
+
+                </div>
+
+            {% endfor %}
+
+        </div>
+
+    </main>
+
+</body>
+
+</html>

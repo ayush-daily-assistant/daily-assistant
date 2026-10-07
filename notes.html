@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Notes - Daily Assistant</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <main class="main-content">
+        <a href="/" class="back-button">← Back to Dashboard</a>
+
+        <h1>📝 My Notes</h1>
+
+        <p>Save important notes and information.</p>
+
+        <br>
+
+        <!-- Add Note -->
+
+        <form method="POST" class="notes-form">
+
+            <input
+                type="text"
+                name="title"
+                placeholder="Note title"
+                required
+            >
+
+            <textarea
+                name="content"
+                placeholder="Write your note..."
+                rows="5"
+                required
+            ></textarea>
+
+            <button type="submit">
+                Add Note
+            </button>
+
+        </form>
+
+        <br>
+
+        <!-- Notes List -->
+
+        <div class="notes-list">
+
+            {% for note in notes %}
+
+                <div class="note-item">
+
+                    <h2>{{ note[1] }}</h2>
+
+                    <p>{{ note[2] }}</p>
+
+                    <small>
+                        📅 {{ note[3] }}
+                    </small>
+
+                    <br><br>
+
+                    <a href="/notes/delete/{{ note[0] }}">
+                        🗑️ Delete
+                    </a>
+
+                </div>
+
+            {% endfor %}
+
+        </div>
+
+    </main>
+
+</body>
+
+</html>

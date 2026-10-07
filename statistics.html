@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Statistics - Daily Assistant</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <main class="main-content">
+        <a href="/" class="back-button">← Back to Dashboard</a>
+
+        <h1>📊 Statistics</h1>
+
+        <p>View a summary of your daily activity.</p>
+
+        <br>
+
+        <section class="statistics-grid">
+
+            <div class="stat-card">
+                <h2>📝 Tasks</h2>
+                <strong>{{ total_tasks }}</strong>
+                <p>Total Tasks</p>
+            </div>
+
+            <div class="stat-card">
+                <h2>✅ Completed</h2>
+                <strong>{{ completed_tasks }}</strong>
+                <p>Completed Tasks</p>
+            </div>
+
+            <div class="stat-card">
+                <h2>💰 Expenses</h2>
+                <strong>₹{{ total_expenses }}</strong>
+                <p>Total Spending</p>
+            </div>
+
+            <div class="stat-card">
+                <h2>📚 Study</h2>
+                <strong>{{ total_study_minutes }}</strong>
+                <p>Total Minutes</p>
+            </div>
+
+            <div class="stat-card">
+                <h2>🛒 Grocery</h2>
+                <strong>{{ total_groceries }}</strong>
+                <p>Total Items</p>
+            </div>
+
+            <div class="stat-card">
+                <h2>📝 Notes</h2>
+                <strong>{{ total_notes }}</strong>
+                <p>Total Notes</p>
+            </div>
+
+            <div class="stat-card">
+                <h2>⏰ Reminders</h2>
+                <strong>{{ pending_reminders }}</strong>
+                <p>Pending Reminders</p>
+            </div>
+
+            <div class="stat-card">
+                <h2>🎯 Goals</h2>
+                <strong>{{ pending_goals }}</strong>
+                <p>Pending Goals</p>
+            </div>
+
+        </section>
+
+    </main>
+
+</body>
+
+</html>

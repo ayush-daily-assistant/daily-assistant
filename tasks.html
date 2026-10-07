@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Tasks - Daily Assistant</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <main class="main-content">
+        <a href="/" class="back-button">← Back to Dashboard</a>
+
+        <h1>📝 My Tasks</h1>
+
+        <p>Add and manage your daily tasks.</p>
+
+        <br>
+
+        <!-- Add Task Form -->
+        <form method="POST">
+
+            <input type="text" name="title" placeholder="Enter a task..." required>
+
+            <button type="submit">Add Task</button>
+
+        </form>
+
+        <br>
+
+        <!-- Task List -->
+        <div class="task-list">
+
+            {% for task in tasks %}
+
+            <div class="task-item">
+
+                <span>
+                    {{ task[1] }}
+                </span>
+
+                {% if task[2] == 0 %}
+
+                {% if task[2] == 0 %}
+
+                <a href="/complete/{{ task[0] }}">
+                    ✅ Complete
+                </a>
+
+                {% else %}
+
+                <a href="/uncomplete/{{ task[0] }}">
+                    ↩️ Mark Pending
+                </a>
+
+                {% endif %}
+
+                {% else %}
+
+                <span>
+                    ✅ Completed
+                </span>
+
+                {% endif %}
+
+                <a href="/delete/{{ task[0] }}">
+                    🗑️ Delete
+                </a>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </main>
+
+</body>
+
+</html>

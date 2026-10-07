@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Calendar - Daily Assistant</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <main class="main-content">
+        <a href="/" class="back-button">← Back to Dashboard</a>
+
+        <h1>📅 Calendar</h1>
+
+        <p>View your daily activities and important dates.</p>
+
+        <br>
+
+        <!-- Tasks -->
+
+        <div class="calendar-section">
+
+            <h2>📝 Tasks</h2>
+
+            {% if tasks %}
+
+            {% for task in tasks %}
+
+            <div class="calendar-item">
+
+                <strong>{{ task[1] }}</strong>
+
+                {% if task[2] == 1 %}
+                <span>✅ Completed</span>
+                {% else %}
+                <span>⏳ Pending</span>
+                {% endif %}
+
+            </div>
+
+            {% endfor %}
+
+            {% else %}
+
+            <p>No tasks available.</p>
+
+            {% endif %}
+
+        </div>
+
+        <!-- Expenses -->
+
+        <div class="calendar-section">
+
+            <h2>💰 Expenses</h2>
+
+            {% if expenses %}
+
+            {% for expense in expenses %}
+
+            <div class="calendar-item">
+
+                <strong>₹{{ expense[1] }}</strong>
+
+                <span>{{ expense[2] }}</span>
+
+                <span>📅 {{ expense[3] }}</span>
+
+            </div>
+
+            {% endfor %}
+
+            {% else %}
+
+            <p>No expenses available.</p>
+
+            {% endif %}
+
+        </div>
+
+        <!-- Study -->
+
+        <div class="calendar-section">
+
+            <h2>📚 Study Sessions</h2>
+
+            {% if study_sessions %}
+
+            {% for session in study_sessions %}
+
+            <div class="calendar-item">
+
+                <strong>{{ session[1] }}</strong>
+
+                <span>{{ session[2] }}</span>
+
+                <span>⏱️ {{ session[3] }} minutes</span>
+
+                <span>📅 {{ session[4] }}</span>
+
+            </div>
+
+            {% endfor %}
+
+            {% else %}
+
+            <p>No study sessions available.</p>
+
+            {% endif %}
+
+        </div>
+
+        <!-- Reminders -->
+
+        <div class="calendar-section">
+
+            <h2>⏰ Reminders</h2>
+
+            {% if reminders %}
+
+            {% for reminder in reminders %}
+
+            <div class="calendar-item">
+
+                <strong>{{ reminder[1] }}</strong>
+
+                <span>📅 {{ reminder[2] }}</span>
+
+                {% if reminder[3] == 1 %}
+                <span>✅ Completed</span>
+                {% else %}
+                <span>⏳ Pending</span>
+                {% endif %}
+
+            </div>
+
+            {% endfor %}
+
+            {% else %}
+
+            <p>No reminders available.</p>
+
+            {% endif %}
+
+        </div>
+
+        <!-- Goals -->
+
+        <div class="calendar-section">
+
+            <h2>🎯 Goals</h2>
+
+            {% if goals %}
+
+            {% for goal in goals %}
+
+            <div class="calendar-item">
+
+                <strong>{{ goal[1] }}</strong>
+
+                <span>📅 Target: {{ goal[2] }}</span>
+
+                {% if goal[3] == 1 %}
+                <span>✅ Completed</span>
+                {% else %}
+                <span>⏳ Pending</span>
+                {% endif %}
+
+            </div>
+
+            {% endfor %}
+
+            {% else %}
+
+            <p>No goals available.</p>
+
+            {% endif %}
+
+        </div>
+
+    </main>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+
+</html>
+
+</body>
+
+</html>

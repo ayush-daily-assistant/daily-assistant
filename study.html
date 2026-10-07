@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Study - Daily Assistant</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <main class="main-content">
+        <a href="/" class="back-button">← Back to Dashboard</a>
+
+        <h1>📚 Study Tracker</h1>
+
+        <p>Track your study sessions and study time.</p>
+
+        <br>
+
+        <!-- Add Study Session -->
+
+        <form method="POST" class="study-form">
+
+            <input type="text" name="subject" placeholder="Subject" required>
+
+            <input type="text" name="topic" placeholder="Topic studied" required>
+
+            <input type="number" name="duration" placeholder="Duration (minutes)" min="1" required>
+
+            <input type="date" name="date" required>
+
+            <button type="submit">
+                Add Study Session
+            </button>
+
+        </form>
+
+        <br>
+
+        <!-- Study Time -->
+
+        <div class="card">
+
+            <h2>Total Study Time</h2>
+
+            <strong>{{ today_study_minutes }} Minutes</strong>
+
+        </div>
+
+        <br>
+
+        <!-- Study History -->
+
+        <div class="study-list">
+
+            {% if study_sessions %}
+
+            {% for session in study_sessions %}
+
+            <div class="study-item">
+
+                <span class="study-subject">
+                    📚 {{ session[1] }}
+                </span>
+
+                <span class="study-topic">
+                    {{ session[2] }}
+                </span>
+
+                <span class="study-duration">
+                    ⏱️ {{ session[3] }} min
+                </span>
+
+                <span class="study-date">
+                    📅 {{ session[4] }}
+                </span>
+
+                <a href="/study/delete/{{ session[0] }}" class="delete-study">
+                    🗑️ Delete
+                </a>
+
+            </div>
+
+            {% endfor %}
+
+            {% else %}
+
+            <p>No study sessions recorded yet.</p>
+
+            {% endif %}
+
+        </div>
+
+    </main>
+
+</body>
+
+</html>

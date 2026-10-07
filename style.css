@@ -1,0 +1,1409 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f6f8;
+    color: #222;
+}
+
+
+/* =========================
+   SIDEBAR
+   ========================= */
+
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+
+    width: 240px;
+    height: 100vh;
+
+    background-color: #1f2937;
+    color: white;
+
+    padding: 25px 15px;
+}
+
+.sidebar h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.sidebar nav {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.sidebar a {
+    text-decoration: none;
+    color: #d1d5db;
+
+    padding: 12px 15px;
+
+    border-radius: 8px;
+
+    transition: 0.2s;
+}
+
+.sidebar a:hover,
+.sidebar a.active {
+    background-color: #374151;
+    color: white;
+}
+
+
+/* =========================
+   MAIN CONTENT
+   ========================= */
+
+.main-content {
+    margin-left: 240px;
+    padding: 30px;
+}
+
+
+/* =========================
+   HEADER
+   ========================= */
+
+.top-header {
+    margin-bottom: 30px;
+}
+
+.top-header h1 {
+    margin-bottom: 8px;
+}
+
+.top-header p {
+    color: #666;
+}
+
+
+/* =========================
+   DASHBOARD
+   ========================= */
+
+.dashboard {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 20px;
+}
+
+
+/* =========================
+   CARDS
+   ========================= */
+
+.card {
+    background-color: white;
+
+    padding: 25px;
+
+    border-radius: 12px;
+
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+}
+
+.card h2 {
+    margin-bottom: 10px;
+}
+
+.card p {
+    color: #666;
+
+    margin-bottom: 15px;
+}
+
+.card strong {
+    font-size: 18px;
+}
+
+
+/* =========================
+   MOBILE RESPONSIVE DESIGN
+   ========================= */
+
+@media (max-width: 800px) {
+
+    .sidebar {
+        position: relative;
+
+        width: 100%;
+        height: auto;
+    }
+
+    .sidebar nav {
+        flex-direction: row;
+
+        overflow-x: auto;
+    }
+
+    .sidebar a {
+        white-space: nowrap;
+    }
+
+    .main-content {
+        margin-left: 0;
+
+        padding: 20px;
+    }
+
+    .dashboard {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* =========================
+   TASKS PAGE
+   ========================= */
+
+.task-list {
+    margin-top: 20px;
+    max-width: 800px;
+}
+
+.task-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    background-color: white;
+
+    padding: 15px 20px;
+    margin-bottom: 12px;
+
+    border-radius: 10px;
+
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+
+/* Task name */
+
+.task-item span:first-child {
+    flex: 1;
+    font-size: 17px;
+}
+
+
+/* Buttons / Links */
+
+.task-item a {
+    text-decoration: none;
+
+    padding: 7px 12px;
+
+    border-radius: 6px;
+
+    background-color: #f1f3f5;
+
+    color: #333;
+
+    transition: 0.2s;
+}
+
+.task-item a:hover {
+    background-color: #e2e6ea;
+}
+
+
+/* Add Task form */
+
+form {
+    display: flex;
+    gap: 10px;
+
+    max-width: 800px;
+}
+
+form input {
+    flex: 1;
+
+    padding: 12px;
+
+    border: 1px solid #ccc;
+
+    border-radius: 7px;
+
+    font-size: 16px;
+}
+
+form button {
+    padding: 12px 18px;
+
+    border: none;
+
+    border-radius: 7px;
+
+    background-color: #1f2937;
+
+    color: white;
+
+    cursor: pointer;
+
+    font-size: 15px;
+}
+
+form button:hover {
+    background-color: #374151;
+}
+
+/* =========================
+   EXPENSES PAGE
+   ========================= */
+
+.expense-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    max-width: 800px;
+}
+
+.expense-form input,
+.expense-form select {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 7px;
+    font-size: 16px;
+    background-color: white;
+}
+
+.expense-form button {
+    padding: 12px 18px;
+    border: none;
+    border-radius: 7px;
+    background-color: #1f2937;
+    color: white;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.expense-form button:hover {
+    background-color: #374151;
+}
+
+
+/* Expense list */
+
+.expense-list {
+    max-width: 800px;
+    margin-top: 20px;
+}
+
+.expense-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    background-color: white;
+
+    padding: 16px 20px;
+    margin-bottom: 12px;
+
+    border-radius: 10px;
+
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.expense-amount {
+    font-size: 18px;
+    font-weight: bold;
+    min-width: 90px;
+}
+
+.expense-category {
+    font-weight: bold;
+    flex: 1;
+}
+
+.expense-description {
+    color: #666;
+    flex: 1;
+}
+
+.expense-date {
+    color: #777;
+}
+
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+    .expense-form {
+        grid-template-columns: 1fr;
+    }
+
+    .expense-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+    }
+
+}
+
+/* =========================
+   DASHBOARD CARD LINKS
+   ========================= */
+
+.dashboard-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* =========================
+   STUDY PAGE
+   ========================= */
+
+.study-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    max-width: 800px;
+}
+
+.study-form input {
+    padding: 12px;
+
+    border: 1px solid #ccc;
+
+    border-radius: 7px;
+
+    font-size: 16px;
+
+    background-color: white;
+}
+
+.study-form button {
+    padding: 12px 18px;
+
+    border: none;
+
+    border-radius: 7px;
+
+    background-color: #1f2937;
+
+    color: white;
+
+    cursor: pointer;
+
+    font-size: 15px;
+}
+
+.study-form button:hover {
+    background-color: #374151;
+}
+
+
+/* Study list */
+
+.study-list {
+    max-width: 800px;
+    margin-top: 20px;
+}
+
+.study-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    background-color: white;
+
+    padding: 16px 20px;
+
+    margin-bottom: 12px;
+
+    border-radius: 10px;
+
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.study-subject {
+    font-weight: bold;
+    min-width: 130px;
+}
+
+.study-topic {
+    flex: 1;
+    color: #555;
+}
+
+.study-duration {
+    font-weight: bold;
+}
+
+.study-date {
+    color: #777;
+}
+
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+    .study-form {
+        grid-template-columns: 1fr;
+    }
+
+    .study-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+    }
+
+}
+
+/* =========================
+   GROCERY PAGE
+   ========================= */
+
+.grocery-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr auto;
+    gap: 12px;
+    max-width: 800px;
+}
+
+.grocery-form input {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 7px;
+    font-size: 16px;
+    background-color: white;
+}
+
+.grocery-form button {
+    padding: 12px 18px;
+    border: none;
+    border-radius: 7px;
+    background-color: #1f2937;
+    color: white;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.grocery-form button:hover {
+    background-color: #374151;
+}
+
+.grocery-list {
+    max-width: 800px;
+    margin-top: 20px;
+}
+
+.grocery-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background-color: white;
+    padding: 16px 20px;
+    margin-bottom: 12px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.grocery-name {
+    font-weight: bold;
+    min-width: 150px;
+}
+
+.grocery-quantity {
+    flex: 1;
+    color: #555;
+}
+
+.grocery-item a {
+    text-decoration: none;
+    color: #1f2937;
+    font-weight: 500;
+}
+
+.grocery-item a:hover {
+    text-decoration: underline;
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+    .grocery-form {
+        grid-template-columns: 1fr;
+    }
+
+    .grocery-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+}
+
+/* =========================
+   NOTES PAGE
+   ========================= */
+
+.notes-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 800px;
+}
+
+.notes-form input,
+.notes-form textarea {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 7px;
+    font-size: 16px;
+    background-color: white;
+    font-family: Arial, sans-serif;
+}
+
+.notes-form textarea {
+    resize: vertical;
+}
+
+.notes-form button {
+    width: fit-content;
+    padding: 12px 18px;
+    border: none;
+    border-radius: 7px;
+    background-color: #1f2937;
+    color: white;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.notes-form button:hover {
+    background-color: #374151;
+}
+
+.notes-list {
+    max-width: 800px;
+    margin-top: 20px;
+}
+
+.note-item {
+    background-color: white;
+    padding: 20px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.note-item h2 {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.note-item p {
+    line-height: 1.6;
+    white-space: pre-wrap;
+}
+
+.note-item small {
+    color: #777;
+}
+
+.note-item a {
+    text-decoration: none;
+    color: #1f2937;
+    font-weight: 500;
+}
+
+.note-item a:hover {
+    text-decoration: underline;
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+    .notes-form {
+        width: 100%;
+    }
+
+    .note-item {
+        padding: 16px;
+    }
+
+}
+
+/* =========================
+   REMINDERS PAGE
+   ========================= */
+
+.reminder-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr auto;
+    gap: 12px;
+    max-width: 800px;
+}
+
+.reminder-form input {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 7px;
+    font-size: 16px;
+    background-color: white;
+}
+
+.reminder-form button {
+    padding: 12px 18px;
+    border: none;
+    border-radius: 7px;
+    background-color: #1f2937;
+    color: white;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.reminder-form button:hover {
+    background-color: #374151;
+}
+
+.reminder-list {
+    max-width: 800px;
+    margin-top: 20px;
+}
+
+.reminder-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background-color: white;
+    padding: 16px 20px;
+    margin-bottom: 12px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.reminder-item div {
+    flex: 1;
+}
+
+.reminder-item h2 {
+    margin: 0 0 8px 0;
+}
+
+.reminder-item p {
+    margin: 0;
+    color: #777;
+}
+
+.reminder-item a {
+    text-decoration: none;
+    color: #1f2937;
+    font-weight: 500;
+}
+
+.reminder-item a:hover {
+    text-decoration: underline;
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+    .reminder-form {
+        grid-template-columns: 1fr;
+    }
+
+    .reminder-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+}
+
+/* =========================
+   GOALS PAGE
+   ========================= */
+
+.goal-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 800px;
+}
+
+.goal-form input,
+.goal-form textarea {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 7px;
+    font-size: 16px;
+    background-color: white;
+    font-family: Arial, sans-serif;
+}
+
+.goal-form textarea {
+    resize: vertical;
+}
+
+.goal-form button {
+    width: fit-content;
+    padding: 12px 18px;
+    border: none;
+    border-radius: 7px;
+    background-color: #1f2937;
+    color: white;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.goal-form button:hover {
+    background-color: #374151;
+}
+
+.goal-list {
+    max-width: 800px;
+    margin-top: 20px;
+}
+
+.goal-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background-color: white;
+    padding: 20px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.goal-content {
+    flex: 1;
+}
+
+.goal-content h2 {
+    margin-top: 0;
+    margin-bottom: 8px;
+}
+
+.goal-content p {
+    margin-bottom: 8px;
+    line-height: 1.5;
+}
+
+.goal-content small {
+    color: #777;
+}
+
+.goal-item a {
+    text-decoration: none;
+    color: #1f2937;
+    font-weight: 500;
+}
+
+.goal-item a:hover {
+    text-decoration: underline;
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+    .goal-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+}
+
+/* =========================
+   STATISTICS PAGE
+   ========================= */
+
+.statistics-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    max-width: 1000px;
+}
+
+.stat-card {
+    background-color: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    text-align: center;
+}
+
+.stat-card h2 {
+    margin-top: 0;
+    font-size: 20px;
+}
+
+.stat-card strong {
+    display: block;
+    font-size: 30px;
+    margin: 15px 0;
+}
+
+.stat-card p {
+    color: #777;
+    margin: 0;
+}
+
+/* Mobile */
+
+@media (max-width: 900px) {
+
+    .statistics-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .statistics-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+/* =========================
+   CALENDAR PAGE
+   ========================= */
+
+.calendar-section {
+    max-width: 900px;
+    background-color: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.calendar-section h2 {
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.calendar-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.calendar-item:last-child {
+    border-bottom: none;
+}
+
+.calendar-item strong {
+    min-width: 180px;
+}
+
+.calendar-item span {
+    color: #555;
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+    .calendar-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+    }
+
+}
+
+/* =========================
+   SETTINGS PAGE
+   ========================= */
+
+.settings-section {
+    max-width: 900px;
+    background-color: white;
+    padding: 25px;
+    margin-bottom: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.settings-section h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.setting-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
+    gap: 20px;
+}
+
+.setting-item:last-child {
+    border-bottom: none;
+}
+
+.setting-item strong {
+    font-size: 16px;
+}
+
+.setting-item span {
+    color: #555;
+}
+
+.setting-item p {
+    margin: 6px 0 0 0;
+    color: #777;
+}
+
+.settings-section > p {
+    line-height: 1.6;
+    color: #555;
+}
+
+@media (max-width: 600px) {
+
+    .setting-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+}
+
+/* =========================
+   DAILY SUMMARY
+   ========================= */
+
+.daily-summary {
+    max-width: 1000px;
+    margin-top: 30px;
+}
+
+.daily-summary h2 {
+    margin-bottom: 20px;
+}
+
+.summary-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.summary-item {
+    background-color: white;
+    padding: 18px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+
+.summary-item span {
+    color: #666;
+}
+
+@media (max-width: 800px) {
+
+    .summary-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .summary-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .summary-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+}
+
+/* =========================
+   STUDY DELETE BUTTON
+   ========================= */
+
+.delete-study {
+    text-decoration: none;
+    color: #1f2937;
+    font-weight: 500;
+    margin-left: auto;
+}
+
+.delete-study:hover {
+    text-decoration: underline;
+}
+
+/* =========================
+   EXPENSE DELETE BUTTON
+   ========================= */
+
+.delete-expense {
+    text-decoration: none;
+    color: #1f2937;
+    font-weight: 500;
+    margin-left: auto;
+}
+
+.delete-expense:hover {
+    text-decoration: underline;
+}
+
+/* =========================
+   BACK TO DASHBOARD BUTTON
+   ========================= */
+
+.back-button {
+    display: inline-block;
+    margin-bottom: 20px;
+    padding: 10px 16px;
+    background-color: #1f2937;
+    color: white;
+    text-decoration: none;
+    border-radius: 7px;
+    font-size: 15px;
+}
+
+.back-button:hover {
+    background-color: #374151;
+}
+
+/* =========================
+   DARK THEME
+   ========================= */
+
+body.dark-theme {
+    background-color: #111111;
+    color: #ffffff;
+}
+
+/* Sidebar */
+
+body.dark-theme .sidebar {
+    background-color: #000000;
+}
+
+body.dark-theme .sidebar h2 {
+    color: #ffffff;
+}
+
+body.dark-theme .sidebar a {
+    color: #dddddd;
+}
+
+body.dark-theme .sidebar a:hover,
+body.dark-theme .sidebar a.active {
+    background-color: #222222;
+    color: #ffffff;
+}
+
+/* Main content */
+
+body.dark-theme .main-content {
+    background-color: #111111;
+}
+
+/* Cards */
+
+body.dark-theme .card,
+body.dark-theme .settings-section,
+body.dark-theme .calendar-section,
+body.dark-theme .stat-card,
+body.dark-theme .task-item,
+body.dark-theme .expense-item,
+body.dark-theme .study-item,
+body.dark-theme .grocery-item,
+body.dark-theme .note-item,
+body.dark-theme .reminder-item,
+body.dark-theme .goal-item,
+body.dark-theme .summary-item {
+    background-color: #1e1e1e;
+    color: #ffffff;
+    box-shadow: 0 2px 8px rgba(255, 255, 255, 0.05);
+}
+
+/* Text */
+
+body.dark-theme p,
+body.dark-theme span,
+body.dark-theme small {
+    color: #cccccc;
+}
+
+/* Inputs */
+
+body.dark-theme input,
+body.dark-theme select,
+body.dark-theme textarea {
+    background-color: #222222;
+    color: #ffffff;
+    border-color: #444444;
+}
+
+/* Buttons */
+
+body.dark-theme button {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+body.dark-theme button:hover {
+    background-color: #dddddd;
+}
+
+/* Links */
+
+body.dark-theme a {
+    color: #ffffff;
+}
+
+/* Borders */
+
+body.dark-theme .calendar-item,
+body.dark-theme .setting-item {
+    border-color: #444444;
+}
+
+/* =========================
+   FINAL MOBILE OPTIMIZATION
+   ========================= */
+
+/* Prevent horizontal scrolling */
+html,
+body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+/* Make buttons and links easier to tap */
+button,
+a,
+select,
+input,
+textarea {
+    min-height: 44px;
+}
+
+/* Better mobile layout */
+@media (max-width: 800px) {
+
+    .sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+        padding: 15px 10px;
+    }
+
+    .sidebar h2 {
+        margin-bottom: 15px;
+        font-size: 22px;
+    }
+
+    .sidebar nav {
+        display: flex;
+        flex-direction: row;
+        gap: 8px;
+        overflow-x: auto;
+        padding-bottom: 5px;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .sidebar a {
+        flex: 0 0 auto;
+        white-space: nowrap;
+        padding: 12px 14px;
+    }
+
+    .main-content {
+        width: 100%;
+        margin-left: 0;
+        padding: 20px 15px;
+    }
+
+    .top-header h1 {
+        font-size: 26px;
+    }
+
+    .dashboard {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .card {
+        padding: 20px;
+    }
+
+    .daily-summary {
+        width: 100%;
+    }
+
+    .summary-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .statistics-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .settings-section,
+    .calendar-section,
+    .task-list,
+    .expense-list,
+    .study-list,
+    .grocery-list,
+    .notes-list,
+    .reminder-list,
+    .goal-list {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    /* Forms */
+
+    form,
+    .expense-form,
+    .study-form,
+    .grocery-form,
+    .reminder-form,
+    .notes-form,
+    .goal-form {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    form input,
+    form select,
+    form textarea,
+    form button {
+        width: 100%;
+        font-size: 16px;
+    }
+
+    /* List items */
+
+    .task-item,
+    .expense-item,
+    .study-item,
+    .grocery-item,
+    .reminder-item,
+    .goal-item,
+    .calendar-item {
+        width: 100%;
+        max-width: 100%;
+        flex-wrap: wrap;
+    }
+
+    /* Back button */
+
+    .back-button {
+        width: 100%;
+        text-align: center;
+        padding: 12px;
+    }
+
+}
+
+
+/* =========================
+   SMALL PHONE SCREEN
+   ========================= */
+
+@media (max-width: 480px) {
+
+    .main-content {
+        padding: 15px 10px;
+    }
+
+    .top-header h1 {
+        font-size: 23px;
+    }
+
+    .top-header p {
+        font-size: 14px;
+    }
+
+    .card {
+        padding: 18px;
+        border-radius: 10px;
+    }
+
+    .card h2 {
+        font-size: 19px;
+    }
+
+    .card strong {
+        font-size: 17px;
+    }
+
+    .settings-section,
+    .calendar-section {
+        padding: 18px;
+    }
+
+    .stat-card {
+        padding: 20px;
+    }
+
+    .stat-card strong {
+        font-size: 26px;
+    }
+
+    .task-item,
+    .expense-item,
+    .study-item,
+    .grocery-item,
+    .note-item,
+    .reminder-item,
+    .goal-item {
+        padding: 15px;
+    }
+
+    /* Make action links easy to tap */
+
+    .task-item a,
+    .delete-study,
+    .delete-expense,
+    .grocery-item a,
+    .note-item a,
+    .reminder-item a,
+    .goal-item a {
+        display: inline-block;
+        padding: 10px 12px;
+    }
+
+    /* Theme selector */
+
+    #themeSelector {
+        width: 100%;
+        padding: 12px;
+        font-size: 16px;
+    }
+
+}

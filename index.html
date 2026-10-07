@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Personal Daily Assistant</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+
+        <h2>Daily Assistant</h2>
+
+        <nav>
+            <a href="/" class="active">🏠 Dashboard</a>
+            <a href="/tasks">📝 Tasks</a>
+            <a href="/calendar">📅 Calendar</a>
+            <a href="/reminders">⏰ Reminders</a>
+            <a href="/expenses">💰 Expenses</a>
+            <a href="/study">📚 Study</a>
+            <a href="/grocery">🛒 Grocery</a>
+            <a href="/notes">📝 Notes</a>
+            <a href="/goals">🎯 Goals</a>
+            <a href="/statistics">📊 Statistics</a>
+            <a href="/settings">⚙️ Settings</a>
+        </nav>
+
+    </aside>
+
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+        <header class="top-header">
+
+            <h1>Personal Daily Assistant</h1>
+
+            <p>Manage your day from one place.</p>
+
+            <!-- Today's Date -->
+            <p><strong>📅 Today: {{ today }}</strong></p>
+
+        </header>
+
+
+        <!-- Dashboard Cards -->
+        <section class="dashboard">
+
+            <a href="/tasks" class="dashboard-link">
+
+                <div class="card">
+
+                    <h2>📝 Tasks</h2>
+
+                    <p>Manage your daily tasks.</p>
+
+                    <strong>{{ pending_tasks }} Pending</strong>
+
+                </div>
+
+            </a>
+
+
+            <a href="/expenses" class="dashboard-link">
+
+                <div class="card">
+
+                    <h2>💰 Expenses</h2>
+
+                    <p>Track your spending.</p>
+
+                    <strong>₹{{ today_expenses }} Today</strong>
+
+                </div>
+
+            </a>
+
+
+            <a href="/study" class="dashboard-link">
+
+                <div class="card">
+
+                    <h2>📚 Study</h2>
+
+                    <p>Track your study time.</p>
+
+                    <strong>{{ today_study_minutes }} Minutes</strong>
+
+                </div>
+
+            </a>
+
+
+            <a href="/reminders" class="dashboard-link">
+
+                <div class="card">
+
+                    <h2>⏰ Reminders</h2>
+
+                    <p>Check your upcoming reminders.</p>
+
+                    <strong>{{ upcoming_reminders }} Upcoming</strong>
+
+                </div>
+
+            </a>
+
+
+            <a href="/grocery" class="dashboard-link">
+
+                <div class="card">
+
+                    <h2>🛒 Grocery</h2>
+
+                    <p>Manage your shopping list.</p>
+
+                    <strong>{{ grocery_items }} Items</strong>
+
+                </div>
+
+            </a>
+
+
+            <a href="/goals" class="dashboard-link">
+
+                <div class="card">
+
+                    <h2>🎯 Goals</h2>
+
+                    <p>Track your personal goals.</p>
+
+                    <strong>{{ pending_goals }} Pending</strong>
+
+                </div>
+
+            </a>
+
+
+            <a href="/notes" class="dashboard-link">
+
+                <div class="card">
+
+                    <h2>📝 Notes</h2>
+
+                    <p>Save important notes.</p>
+
+                    <strong>{{ note_count }} Notes</strong>
+
+                </div>
+
+            </a>
+
+        </section>
+
+        <!-- Daily Summary -->
+        <section class="daily-summary">
+
+            <h2>📊 Today's Summary</h2>
+
+            <div class="summary-grid">
+
+                <div class="summary-item">
+                    <strong>📝 Tasks</strong>
+                    <span>{{ pending_tasks }} Pending</span>
+                </div>
+
+                <div class="summary-item">
+                    <strong>💰 Expenses</strong>
+                    <span>₹{{ today_expenses }}</span>
+                </div>
+
+                <div class="summary-item">
+                    <strong>📚 Study</strong>
+                    <span>{{ today_study_minutes }} Minutes</span>
+                </div>
+
+                <div class="summary-item">
+                    <strong>⏰ Reminders</strong>
+                    <span>{{ upcoming_reminders }} Pending</span>
+                </div>
+
+                <div class="summary-item">
+                    <strong>🎯 Goals</strong>
+                    <span>{{ pending_goals }} Pending</span>
+                </div>
+
+                <div class="summary-item">
+                    <strong>🛒 Grocery</strong>
+                    <span>{{ grocery_items }} Items</span>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+
+</html>

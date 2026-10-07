@@ -6,6 +6,9 @@ from database import get_connection, init_db
 
 app = Flask(__name__)
 
+# Initialize database
+init_db()
+
 
 # =========================
 # HOME / DASHBOARD

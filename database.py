@@ -106,3 +106,6 @@ def init_db():
 
     connection.commit()
     connection.close()
+
+# Initialize database when the app starts
+init_db()
